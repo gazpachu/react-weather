@@ -99,4 +99,4 @@ gulp.task('watch', function () {
 });
 
 // Run tasks in a specific order
-gulp.task('default', ['build', 'serve', 'sass', 'watch']);
+gulp.task('default', gulp.series('build', gulp.parallel('serve', 'sass', 'watch')));
