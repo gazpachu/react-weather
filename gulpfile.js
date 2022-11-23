@@ -35,7 +35,7 @@ var notify = function (error) {
 };
 
 // Bundle settings
-var bundler = watchify(browserify({
+var bundler = browserify({
     entries: ['./src/app.jsx'],
     transform: [reactify],
     extensions: ['.jsx'],
@@ -43,7 +43,7 @@ var bundler = watchify(browserify({
     cache: {},
     packageCache: {},
     fullPaths: true
-}));
+});
 
 // Bundle tasks
 function bundle() {
@@ -53,11 +53,11 @@ function bundle() {
         .pipe(source('main.js'))
         .pipe(gulp.dest('./'))
 }
-bundler.on('update', bundle);
+// bundler.on('update', bundle);
 
 // Create bundle
 gulp.task('build', function() {
-    bundle()
+    return bundle();
 });
 
 // Compile the SASS files from main.scss
