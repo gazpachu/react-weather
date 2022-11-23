@@ -2,3 +2,4 @@ node_modules/
 bower_components/
 main.js
 style.css
+.history/
